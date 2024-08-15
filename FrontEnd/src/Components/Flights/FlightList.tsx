@@ -2,18 +2,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { SingleFLight } from "./SingleFlight";
+import { Flight } from "../../types/interfaces";
 
-interface Flight {
-  id: string;
-  airline: string;
-  departure: string;
-  arrival: string;
-  departureTime: string;
-  arrivalTime: string;
-  price: number;
-}
-
-const Flights: React.FC = () => {
+export const FlightList: React.FC = () => {
   const [flights, setFlights] = useState<Flight[]>([]);
 
   useEffect(() => {
@@ -36,5 +27,3 @@ const Flights: React.FC = () => {
     </div>
   );
 };
-
-export default Flights;

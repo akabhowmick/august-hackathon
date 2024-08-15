@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Attraction } from "../../types/interfaces";
 import { SingleAttraction } from "./SingleAttraction";
 
-const AttractionList: React.FC = () => {
+export const AttractionList: React.FC = () => {
   const [attractions, setAttractions] = useState<Attraction[]>([]);
   const [selectedAttraction, setSelectedAttraction] = useState<Attraction | null>(null);
 
@@ -41,5 +41,3 @@ const AttractionList: React.FC = () => {
     </div>
   );
 };
-
-export default AttractionList;

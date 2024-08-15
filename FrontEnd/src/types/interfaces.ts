@@ -45,3 +45,11 @@ export interface Restaurant {
   location: string;
   rating: number;
 }
+
+export interface Hotel {
+  id: string;
+  name: string;
+  location: string;
+  pricePerNight: number;
+  rating: number;
+}

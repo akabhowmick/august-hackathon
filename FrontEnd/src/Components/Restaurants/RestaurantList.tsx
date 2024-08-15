@@ -1,32 +1,18 @@
-// src/components/Restaurants.tsx
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Restaurant } from "../../types/interfaces";
+import { useRestaurantContext } from "../../providers/RestaurantProvider";
+import { SingleRestaurant } from "./SingleRestaurant";
 
-const Restaurants: React.FC = () => {
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
-
-  useEffect(() => {
-    axios
-      .get("/api/restaurants")
-      .then((response) => setRestaurants(response.data))
-      .catch((error) => console.error("Error fetching restaurants:", error));
-  }, []);
-
+export const RestaurantsList = () => {
+  const { restaurants } = useRestaurantContext();
   return (
     <div>
       <h2>Top Restaurants</h2>
       <ul>
         {restaurants.map((restaurant) => (
           <li key={restaurant.id}>
-            <strong>{restaurant.name}</strong> - {restaurant.cuisine} <br />
-            Location: {restaurant.location} <br />
-            Rating: {restaurant.rating}/5
+            <SingleRestaurant restaurant={restaurant} />
           </li>
         ))}
       </ul>
     </div>
   );
 };
-
-export default Restaurants;

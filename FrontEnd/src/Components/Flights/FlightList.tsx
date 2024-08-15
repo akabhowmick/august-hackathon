@@ -1,19 +1,8 @@
-// src/components/Flights.tsx
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useFlightContext } from "../../providers/FlightProvider";
 import { SingleFLight } from "./SingleFlight";
-import { Flight } from "../../types/interfaces";
 
 export const FlightList: React.FC = () => {
-  const [flights, setFlights] = useState<Flight[]>([]);
-
-  useEffect(() => {
-    axios
-      .get("/api/flights")
-      .then((response) => setFlights(response.data))
-      .catch((error) => console.error("Error fetching flights:", error));
-  }, []);
-
+  const { flights } = useFlightContext();
   return (
     <div>
       <h2>Available Flights</h2>

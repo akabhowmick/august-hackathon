@@ -1,16 +1,18 @@
-// import { Button } from "@material-tailwind/react";
+import { AIChatBox } from "./Components/ChatBox/ChatBox";
+import AttractionList from "./Components/Attractions/AttractionList";
+import { Header } from "./Components/Header/Header";
+import "react-chat-widget/lib/styles.css";
 
 function App() {
-  
-
   return (
     <>
-      <div className="flex items-center justify-center h-screen">
-        Hello
-      {/* <Button color="blue">Hello, Material Tailwind!</Button> */}
-    </div>
+      <Header />
+      <main>
+        <AttractionList />
+        <AIChatBox />
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

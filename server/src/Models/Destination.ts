@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const DestinationSchema = new mongoose.Schema({
+const AttractionSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -39,7 +39,7 @@ const DestinationSchema = new mongoose.Schema({
     },
     nearbyAttractions: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Destination',
+        ref: 'Attraction',
     }],
     openingHours: {
         type: {
@@ -72,4 +72,4 @@ const DestinationSchema = new mongoose.Schema({
     }],
 }, { timestamps: true });
 
-export const Destination = mongoose.model('Destination', DestinationSchema);
+export const Attraction = mongoose.model('Attraction', AttractionSchema);

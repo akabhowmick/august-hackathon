@@ -5,7 +5,7 @@ const FlightSchema = new mongoose.Schema({
     departure: Date,
     arrival: Date,
     origin: String,
-    destination: String,
+    attraction: String,
     price: Number,
 });
 

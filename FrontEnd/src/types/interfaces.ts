@@ -1,4 +1,4 @@
-export interface Destination {
+export interface Attraction {
   _id: string;
   name: string;
   description: string;
@@ -8,4 +8,40 @@ export interface Destination {
   };
   category: string;
   popularityScore: number;
+}
+
+export interface Attraction {
+  name: string;
+  description: string;
+  location: {
+    city: string;
+    country: string;
+  };
+  category: string;
+  imageUrl: string;
+  recommendedVisitTime: string;
+  popularityScore: number;
+  openingHours: {
+    open: string;
+    close: string;
+  };
+  entryFee: number;
+}
+
+export interface Flight {
+  id: string;
+  airline: string;
+  departure: string;
+  arrival: string;
+  departureTime: string;
+  arrivalTime: string;
+  price: number;
+}
+
+export interface Restaurant {
+  id: string;
+  name: string;
+  cuisine: string;
+  location: string;
+  rating: number;
 }

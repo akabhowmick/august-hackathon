@@ -12,32 +12,45 @@ import { HotelProvider } from "./providers/HotelProvider";
 import { AttractionProvider } from "./providers/AttractionProvider";
 import { RestaurantProvider } from "./providers/RestaurantProvider";
 import { TravelForm } from "./Components/TravelForm/TravelForm";
+import { useUserInfoContext } from "./providers/UserInfoProvider";
 
 function App() {
+  const { currentStep } = useUserInfoContext();
+
+  const apiTravelInfo = (
+    <main>
+      <TravelForm />
+      <section id="flights">
+        <FlightList />
+      </section>
+      <section id="hotels">
+        <HotelsList />
+      </section>
+      <section id="restaurants">
+        <RestaurantsList />
+      </section>
+      <section id="attractions">
+        <AttractionList />
+      </section>
+    </main>
+  );
+
+  const userDisplay =
+    currentStep === "initialUserInfo" ? (
+      <TravelForm />
+    ) : currentStep === "AIChatting" ? (
+      apiTravelInfo
+    ) : (
+      <AIChatBox />
+    );
+
   return (
     <>
       <Header />
       <FlightProvider>
         <HotelProvider>
           <AttractionProvider>
-            <RestaurantProvider>
-              <main>
-                <TravelForm />
-                <section id="flights">
-                  <FlightList />
-                </section>
-                <section id="hotels">
-                  <HotelsList />
-                </section>
-                <section id="restaurants">
-                  <RestaurantsList />
-                </section>
-                <section id="attractions">
-                  <AttractionList />
-                </section>
-                <AIChatBox />
-              </main>
-            </RestaurantProvider>
+            <RestaurantProvider>{userDisplay}</RestaurantProvider>
           </AttractionProvider>
         </HotelProvider>
       </FlightProvider>

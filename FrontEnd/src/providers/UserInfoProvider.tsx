@@ -7,11 +7,15 @@ interface User {
   email: string;
 }
 
+type AllowedValues = "initialUserInfo" | "AIChatting" | "FinalSummary";
+
 interface UserInfoContextType {
   user: User | null;
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
   travelInfo: TravelInfo;
   setTravelInfo: React.Dispatch<React.SetStateAction<TravelInfo>>;
+  currentStep: AllowedValues;
+  setCurrentStep: React.Dispatch<React.SetStateAction<AllowedValues>>;
 }
 
 const UserInfoContext = createContext<UserInfoContextType>({} as UserInfoContextType);
@@ -25,6 +29,7 @@ export const UserInfoProvider = ({ children }: { children: ReactNode }) => {
     location: "",
     numberOfPeople: 0,
   });
+  const [currentStep, setCurrentStep] = useState<AllowedValues>("initialUserInfo");
 
   return (
     <UserInfoContext.Provider
@@ -33,6 +38,8 @@ export const UserInfoProvider = ({ children }: { children: ReactNode }) => {
         setUser,
         travelInfo,
         setTravelInfo,
+        currentStep,
+        setCurrentStep,
       }}
     >
       {children}

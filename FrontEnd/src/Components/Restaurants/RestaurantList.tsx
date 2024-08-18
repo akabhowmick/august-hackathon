@@ -7,11 +7,11 @@ export const RestaurantsList = () => {
     <div>
       <h2>Top Restaurants</h2>
       <ul>
-        {restaurants.map((restaurant) => (
+        {/* {restaurants?.map((restaurant) => (
           <li key={restaurant.id}>
             <SingleRestaurant restaurant={restaurant} />
           </li>
-        ))}
+        ))} */}
       </ul>
     </div>
   );

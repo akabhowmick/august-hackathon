@@ -13,11 +13,29 @@ export const HotelProvider = ({ children }: { children: ReactNode }) => {
   const [hotels, setHotels] = useState<Hotel[]>([]);
 
   useEffect(() => {
-    axios
-      .get("/api/hotels")
-      .then((response) => setHotels(response.data))
-      .catch((error) => console.error("Error fetching hotels:", error));
-  }, []);
+    const options = {
+      method: "GET",
+      url: "https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotels",
+      params: {
+        pageNumber: "1",
+        currencyCode: "USD",
+      },
+      headers: {
+        "x-rapidapi-key": "7102454959msh770337f56eaeab0p17734djsn5c461c2c8430",
+        "x-rapidapi-host": "tripadvisor16.p.rapidapi.com",
+      },
+    };
+    const getHotels = async () => {
+      try {
+        const response = await axios.request(options);
+        setHotels(response.data);
+      } catch (error) {
+        console.error("Error fetching hotels:", error);
+      }
+    };
+
+    getHotels();
+  }, []); // Empty dependency array ensures this effect runs only once after the initial render
 
   return (
     <HotelContext.Provider

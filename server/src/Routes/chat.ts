@@ -15,6 +15,7 @@ router.post("/chat", async (req, res) => {
         temperature: 0.7,
       },
       {
+        // TODO: replace
         headers: {
           Authorization: `Bearer YOUR_OPENAI_API_KEY`,
           "Content-Type": "application/json",

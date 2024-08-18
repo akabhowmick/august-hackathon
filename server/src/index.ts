@@ -1,18 +1,25 @@
 import express from 'express';
-import axios from 'axios';
-import { Flight } from './Models/Flight';
+import hotelsRouter from "./Routes/hotels";
+import restaurantsRouter from "./Routes/restaurants";
+import attractionsRouter from "./Routes/attractions";
+import flightsRouter from "./Routes/flights";
+const cors = require("cors");
+require("dotenv").config();
 
-const router = express.Router();
+const app = express();
+const PORT = process.env.PORT || 5050;
 
-router.get('/flights', async (req, res) => {
-    const flights = await Flight.find();
-    const skyscannerData = await axios.get('Skyscanner API URL');
-    // Combine data
-    res.json({ localFlights: flights, realTimeFlights: skyscannerData.data });
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Routes
+app.use('/api/hotels', hotelsRouter);
+app.use('/api/restaurants', restaurantsRouter);
+app.use('/api/attractions', attractionsRouter);
+app.use('/api/flights', flightsRouter);
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
-
-// Repeat for Hotels, Restaurants, Food Items
-
-export default router;
-
-

@@ -53,3 +53,21 @@ export interface Hotel {
   pricePerNight: number;
   rating: number;
 }
+
+export interface TravelInfo {
+  budget: number;
+  startDate: string;
+  endDate: string;
+  location: string;
+  numberOfPeople: number;
+}
+
+export interface TravelInputFieldProps {
+  id: string;
+  label: string;
+  type: string;
+  value: number | string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  errorMessage?: string;
+  required?: boolean;
+}

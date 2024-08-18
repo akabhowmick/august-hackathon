@@ -7,11 +7,11 @@ export const FlightList: React.FC = () => {
     <div>
       <h2>Available Flights</h2>
       <ul>
-        {flights.map((flight) => (
+        {/* {flights.length >0 && flights.map((flight) => (
           <li key={flight.id}>
             <SingleFLight flight={flight} />
           </li>
-        ))}
+        ))} */}
       </ul>
     </div>
   );

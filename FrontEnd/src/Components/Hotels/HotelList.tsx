@@ -8,11 +8,11 @@ export const HotelsList: React.FC = () => {
     <div>
       <h2>Available Hotels</h2>
       <ul>
-        {hotels.map((hotel) => (
+        {/* {hotels?.map((hotel) => (
           <li key={hotel.id}>
             <SingleHotel hotel={hotel} />
           </li>
-        ))}
+        ))} */}
       </ul>
     </div>
   );

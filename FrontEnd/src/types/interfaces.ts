@@ -72,3 +72,11 @@ export interface TravelInputFieldProps {
   errorMessage?: string;
   required?: boolean;
 }
+
+export interface UserChoice {
+  flights: Flight[];
+  hotels: Hotel[];
+  restaurants: Restaurant[];
+  attractions: Attraction[];
+  totalCost: number;
+}

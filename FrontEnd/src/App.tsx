@@ -1,4 +1,3 @@
-import { AIChatBox } from "./Components/ChatBox/ChatBox";
 import { Header } from "./Components/Header/Header";
 import "react-chat-widget/lib/styles.css";
 
@@ -13,6 +12,7 @@ import { AttractionProvider } from "./providers/AttractionProvider";
 import { RestaurantProvider } from "./providers/RestaurantProvider";
 import { TravelForm } from "./Components/TravelForm/TravelForm";
 import { useUserInfoContext } from "./providers/UserInfoProvider";
+import { Chatbox } from "./Components/ChatBox/ChatBox";
 
 function App() {
   const { currentStep } = useUserInfoContext();
@@ -43,7 +43,7 @@ function App() {
             <RestaurantProvider>
               {currentStep === "initialUserInfo" && <TravelForm />}
               {currentStep === "AIChatting" && apiTravelInfo}
-              {currentStep === "FinalSummary" && <AIChatBox />}
+              {currentStep === "FinalSummary" && <Chatbox />}
             </RestaurantProvider>
           </AttractionProvider>
         </HotelProvider>

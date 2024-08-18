@@ -2,11 +2,7 @@ export const Header = () => {
   return (
     <header>
       <h1>Vacation Planner</h1>
-      <nav>
-        <a href="#flights">Flights</a>
-        <a href="#restaurants">Restaurants</a>
-        <a href="#hotels">Hotels</a>
-      </nav>
+      <h2>3 Easy Steps to the Easiest Vacation of your Life! </h2>
     </header>
   );
 };

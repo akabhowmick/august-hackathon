@@ -19,7 +19,6 @@ function App() {
 
   const apiTravelInfo = (
     <main>
-      <TravelForm />
       <section id="flights">
         <FlightList />
       </section>
@@ -35,22 +34,17 @@ function App() {
     </main>
   );
 
-  const userDisplay =
-    currentStep === "initialUserInfo" ? (
-      <TravelForm />
-    ) : currentStep === "AIChatting" ? (
-      apiTravelInfo
-    ) : (
-      <AIChatBox />
-    );
-
   return (
     <>
       <Header />
       <FlightProvider>
         <HotelProvider>
           <AttractionProvider>
-            <RestaurantProvider>{userDisplay}</RestaurantProvider>
+            <RestaurantProvider>
+              {currentStep === "initialUserInfo" && <TravelForm />}
+              {currentStep === "AIChatting" && apiTravelInfo}
+              {currentStep === "FinalSummary" && <AIChatBox />}
+            </RestaurantProvider>
           </AttractionProvider>
         </HotelProvider>
       </FlightProvider>

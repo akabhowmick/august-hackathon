@@ -58,7 +58,8 @@ export interface TravelInfo {
   budget: number;
   startDate: string;
   endDate: string;
-  location: string;
+  startLocation: string;
+  endLocation: string;
   numberOfPeople: number;
 }
 

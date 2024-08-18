@@ -9,13 +9,21 @@ export const TravelForm = () => {
     budget: "",
     startDate: "",
     endDate: "",
-    location: "",
+    startLocation: "",
+    endLocation: "",
     numberOfPeople: "",
   });
 
   const validate = () => {
     let isValid = true;
-    const newErrors = { budget: "", startDate: "", endDate: "", location: "", numberOfPeople: "" };
+    const newErrors = {
+      budget: "",
+      startDate: "",
+      endDate: "",
+      startLocation: "",
+      endLocation: "",
+      numberOfPeople: "",
+    };
 
     // Budget validation: must be a positive number
     if (!travelInfo.budget || travelInfo.budget <= 0) {
@@ -46,8 +54,12 @@ export const TravelForm = () => {
     }
 
     // Location validation: cannot be empty
-    if (!travelInfo.location.trim()) {
-      newErrors.location = "Please enter a location.";
+    if (!travelInfo.startLocation.trim()) {
+      newErrors.startLocation = "Please enter a location.";
+      isValid = false;
+    }
+    if (!travelInfo.endLocation.trim()) {
+      newErrors.endLocation = "Please enter a location.";
       isValid = false;
     }
 
@@ -65,7 +77,7 @@ export const TravelForm = () => {
     event.preventDefault();
     if (validate()) {
       alert(
-        `Budget: $${travelInfo.budget}\nTravel Dates: ${travelInfo.startDate} to ${travelInfo.endDate}\nLocation: ${travelInfo.location}\nNumber of People: ${travelInfo.numberOfPeople}`
+        `Budget: $${travelInfo.budget}\nTravel Dates: ${travelInfo.startDate} to ${travelInfo.endDate}\nStarting Location: ${travelInfo.startLocation}\nEnd Location: ${travelInfo.endLocation}\nNumber of People: ${travelInfo.numberOfPeople}`
       );
     }
   };
@@ -103,12 +115,22 @@ export const TravelForm = () => {
         />
 
         <TravelFormInput
-          id="location"
-          label="Location:"
+          id="start-location"
+          label="Starting Location:"
           type="text"
-          value={travelInfo.location}
-          onChange={(e) => setTravelInfo({ ...travelInfo, location: e.target.value })}
-          errorMessage={errors.location}
+          value={travelInfo.startLocation}
+          onChange={(e) => setTravelInfo({ ...travelInfo, startLocation: e.target.value })}
+          errorMessage={errors.startLocation}
+          required
+        />
+
+        <TravelFormInput
+          id="end-location"
+          label="End Location:"
+          type="text"
+          value={travelInfo.endLocation}
+          onChange={(e) => setTravelInfo({ ...travelInfo, endLocation: e.target.value })}
+          errorMessage={errors.endLocation}
           required
         />
 

@@ -26,7 +26,8 @@ export const UserInfoProvider = ({ children }: { children: ReactNode }) => {
     budget: 0,
     startDate: "",
     endDate: "",
-    location: "",
+    startLocation: "",
+    endLocation: "",
     numberOfPeople: 0,
   });
   const [currentStep, setCurrentStep] = useState<AllowedValues>("initialUserInfo");

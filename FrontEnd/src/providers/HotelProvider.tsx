@@ -15,7 +15,7 @@ export const HotelProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotels",
+      url: "/api/hotels",
       params: {
         pageNumber: "1",
         currencyCode: "USD",

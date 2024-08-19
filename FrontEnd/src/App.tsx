@@ -13,12 +13,14 @@ import { RestaurantProvider } from "./providers/RestaurantProvider";
 import { TravelForm } from "./Components/TravelForm/TravelForm";
 import { useUserInfoContext } from "./providers/UserInfoProvider";
 import { Chatbox } from "./Components/ChatBox/ChatBox";
+import SummaryPage from "./Components/Summary/Summary";
 
 function App() {
-  const { currentStep } = useUserInfoContext();
+  const { currentStep, finalChoices } = useUserInfoContext();
 
   const apiTravelInfo = (
     <main>
+      <Chatbox />
       <section id="flights">
         <FlightList />
       </section>
@@ -43,7 +45,7 @@ function App() {
             <RestaurantProvider>
               {currentStep === "initialUserInfo" && <TravelForm />}
               {currentStep === "AIChatting" && apiTravelInfo}
-              {currentStep === "FinalSummary" && <Chatbox />}
+              {currentStep === "FinalSummary" && <SummaryPage choices={finalChoices} />}
             </RestaurantProvider>
           </AttractionProvider>
         </HotelProvider>

@@ -3,8 +3,8 @@ import { Attraction, Flight, Hotel, Restaurant, UserChoice } from "../../types/i
 
 const SummaryPage: React.FC<{ choices: UserChoice }> = ({ choices }) => {
   return (
-    <div>
-      <h2>Summary</h2>
+    <div className="m-4 flex justify-center items-center">
+      <h2>Step 3: Here is your summarized trip contents!! Enjoy!!</h2>
       <h3>Flights:</h3>
       <ul>
         {choices.flights.map((flight: Flight) => (

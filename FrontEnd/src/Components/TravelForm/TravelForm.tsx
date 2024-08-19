@@ -83,8 +83,12 @@ export const TravelForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="m-4 flex justify-center items-center">
       <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
+        <h3 className="text-black mb-2">
+          <strong>Step 1: </strong>Complete the form below to get the initial suggestions from our
+          APIs
+        </h3>
         <TravelFormInput
           id="budget"
           label="Budget ($):"

@@ -11,6 +11,6 @@
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types"]
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/Routes/travel.js"],
   "exclude": ["node_modules"]
 }

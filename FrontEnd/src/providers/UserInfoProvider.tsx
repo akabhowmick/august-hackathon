@@ -1,5 +1,5 @@
 import { useState, createContext, useContext, ReactNode } from "react";
-import { TravelInfo } from "../types/interfaces";
+import { TravelInfo, UserChoice } from "../types/interfaces";
 
 interface User {
   id: string;
@@ -16,6 +16,8 @@ interface UserInfoContextType {
   setTravelInfo: React.Dispatch<React.SetStateAction<TravelInfo>>;
   currentStep: AllowedValues;
   setCurrentStep: React.Dispatch<React.SetStateAction<AllowedValues>>;
+  finalChoices: UserChoice;
+  setFinalChoices: React.Dispatch<React.SetStateAction<UserChoice>>;
 }
 
 const UserInfoContext = createContext<UserInfoContextType>({} as UserInfoContextType);
@@ -31,6 +33,13 @@ export const UserInfoProvider = ({ children }: { children: ReactNode }) => {
     numberOfPeople: 0,
   });
   const [currentStep, setCurrentStep] = useState<AllowedValues>("initialUserInfo");
+  const [finalChoices, setFinalChoices] = useState<UserChoice>({
+    flights: [],
+    hotels: [],
+    restaurants: [],
+    attractions: [],
+    totalCost: 0,
+  });
 
   return (
     <UserInfoContext.Provider
@@ -41,6 +50,8 @@ export const UserInfoProvider = ({ children }: { children: ReactNode }) => {
         setTravelInfo,
         currentStep,
         setCurrentStep,
+        finalChoices,
+        setFinalChoices,
       }}
     >
       {children}

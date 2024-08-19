@@ -36,6 +36,8 @@ interface UserInfoContextType {
   setCurrentStep: React.Dispatch<React.SetStateAction<AllowedValues>>;
   finalChoices: UserChoice;
   setFinalChoices: React.Dispatch<React.SetStateAction<UserChoice>>;
+  itinerary: UserChoice;
+  setItinerary: React.Dispatch<React.SetStateAction<UserChoice>>;
 }
 
 const UserInfoContext = createContext<UserInfoContextType>({} as UserInfoContextType);
@@ -44,7 +46,7 @@ export const UserInfoProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [travelInfo, setTravelInfo] = useState<TravelInfo>(dummyInput);
   const [currentStep, setCurrentStep] = useState<AllowedValues>("initialUserInfo");
-  const [finalChoices, setFinalChoices] = useState<UserChoice>({
+  const [itinerary, setItinerary] = useState<UserChoice>({
     flights: [],
     hotels: [],
     restaurants: [],
@@ -52,6 +54,14 @@ export const UserInfoProvider = ({ children }: { children: ReactNode }) => {
     totalCost: 0,
   });
 
+  const [finalChoices, setFinalChoices] = useState<UserChoice>({
+    flights: [],
+    hotels: [],
+    restaurants: [],
+    attractions: [],
+    totalCost: 0,
+  });
+  
   return (
     <UserInfoContext.Provider
       value={{
@@ -63,6 +73,8 @@ export const UserInfoProvider = ({ children }: { children: ReactNode }) => {
         setCurrentStep,
         finalChoices,
         setFinalChoices,
+        itinerary,
+        setItinerary,
       }}
     >
       {children}

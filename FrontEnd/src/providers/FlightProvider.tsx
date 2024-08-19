@@ -1,5 +1,6 @@
 import { useState, createContext, useContext, ReactNode, useEffect } from "react";
 import { Flight } from "../types/interfaces";
+import { flightsData } from "../MockData/mockFlights";
 import { useUserInfoContext } from "./UserInfoProvider";
 
 interface FlightContextType {
@@ -10,14 +11,13 @@ interface FlightContextType {
 const FlightContext = createContext<FlightContextType>({} as FlightContextType);
 
 export const FlightProvider = ({ children }: { children: ReactNode }) => {
-  const { travelInfo } = useUserInfoContext();
-  console.log(travelInfo);
   const [flights, setFlights] = useState<Flight[]>([]);
 
+  const { currentStep } = useUserInfoContext();
 
   useEffect(() => {
-    console.log(travelInfo);
-  }, [travelInfo]);
+    setFlights(flightsData);
+  }, [currentStep]);
 
   return (
     <FlightContext.Provider

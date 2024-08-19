@@ -1,16 +1,4 @@
 export interface Attraction {
-  _id: string;
-  name: string;
-  description: string;
-  location: {
-    city: string;
-    country: string;
-  };
-  category: string;
-  popularityScore: number;
-}
-
-export interface Attraction {
   name: string;
   description: string;
   location: {
@@ -31,8 +19,12 @@ export interface Attraction {
 export interface Flight {
   id: string;
   airline: string;
+  duration: string;
   departure: string;
   arrival: string;
+  stops: number;
+  departureAirport: string;
+  arrivalAirport: string;
   departureTime: string;
   arrivalTime: string;
   price: number;

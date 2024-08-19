@@ -1,36 +1,28 @@
-// src/components/AttractionDetails.tsx
-import React from "react";
 import { Attraction } from "../../types/interfaces";
 
-const AttractionDetails: React.FC<{ attraction: Attraction }> = ({ attraction }) => {
+const AttractionDetails = ({
+  attraction,
+  isPicked,
+  toggleItinerary,
+}: {
+  attraction: Attraction;
+  isPicked: boolean;
+  toggleItinerary: (attraction: Attraction) => void;
+}) => {
   return (
-    <div>
-      <h2>{attraction.name}</h2>
-      <img
-        src={attraction.imageUrl}
-        alt={attraction.name}
-        style={{ width: "100%", height: "auto" }}
-      />
-      <p>{attraction.description}</p>
+    <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+      <strong className="text-lg font-semibold">{attraction.name}</strong> - {attraction.category}{" "}
+      <br />
       <p>
-        <strong>Location:</strong> {attraction.location.city}, {attraction.location.country}
+        Location: {attraction.location.city}, {attraction.location.country}
       </p>
-      <p>
-        <strong>Category:</strong> {attraction.category}
-      </p>
-      <p>
-        <strong>Recommended Visit Time:</strong> {attraction.recommendedVisitTime}
-      </p>
-      <p>
-        <strong>Popularity Score:</strong> {attraction.popularityScore}/10
-      </p>
-      <p>
-        <strong>Opening Hours:</strong> {attraction.openingHours.open} -{" "}
-        {attraction.openingHours.close}
-      </p>
-      <p>
-        <strong>Entry Fee:</strong> ${attraction.entryFee}
-      </p>
+      <p>Recommended Visit Time: {attraction.recommendedVisitTime}</p>
+      <button
+        onClick={() => toggleItinerary(attraction)}
+        className={`mt-2 p-2 rounded-md ${isPicked ? "bg-red-500" : "bg-blue-500"} text-white`}
+      >
+        {isPicked ? "Remove from Itinerary" : "Add to Itinerary"}
+      </button>
     </div>
   );
 };

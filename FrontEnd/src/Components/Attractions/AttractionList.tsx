@@ -8,11 +8,11 @@ export const AttractionList = () => {
     <div>
       <h2>Key Attractions</h2>
       <ul>
-        {/* {attractions?.map((attraction) => (
+        {attractions?.map((attraction) => (
           <li key={attraction._id}>
             <SingleAttraction attraction={attraction} />
           </li>
-        ))} */}
+        ))}
       </ul>
     </div>
   );

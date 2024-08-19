@@ -9,6 +9,24 @@ interface User {
 
 type AllowedValues = "initialUserInfo" | "AIChatting" | "FinalSummary";
 
+const dummyInput: TravelInfo = {
+  budget: 2000,
+  startDate: "2025-03-27",
+  endDate: "2025-03-31",
+  startLocation: "New York",
+  endLocation: "Boston",
+  numberOfPeople: 4,
+};
+
+// const default = {
+//   budget: 0,
+//   startDate: "",
+//   endDate: "",
+//   startLocation: "",
+//   endLocation: "",
+//   numberOfPeople: 0,
+// }
+
 interface UserInfoContextType {
   user: User | null;
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
@@ -24,14 +42,7 @@ const UserInfoContext = createContext<UserInfoContextType>({} as UserInfoContext
 
 export const UserInfoProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [travelInfo, setTravelInfo] = useState<TravelInfo>({
-    budget: 0,
-    startDate: "",
-    endDate: "",
-    startLocation: "",
-    endLocation: "",
-    numberOfPeople: 0,
-  });
+  const [travelInfo, setTravelInfo] = useState<TravelInfo>(dummyInput);
   const [currentStep, setCurrentStep] = useState<AllowedValues>("initialUserInfo");
   const [finalChoices, setFinalChoices] = useState<UserChoice>({
     flights: [],

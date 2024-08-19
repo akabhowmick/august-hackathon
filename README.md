@@ -1,8 +1,8 @@
 # Vacation Planning API
 
-This repository provides a backend API for a vacation planning application, allowing users to fetch information about hotels, restaurants, attractions, and flights. The API is built using Node.js, Express, and TypeScript.
+This website provides a vacation planning application, allowing users to fetch information about hotels, restaurants, attractions, and flights. 
 
-Frontend: A user interface where users input their preferences and interact with the chatbox.
+Frontend: A user interface where users input their preferences and interact with the AI chatbox.
 
 Backend: Handles user input, interacts with AI models, and fetches data from external APIs for flights, hotels, restaurants, and activities.
 
@@ -61,3 +61,8 @@ npm run dev
 cd server
 npm start
 ```
+
+
+## Future Features
+1. Upgrade frontend to https://aka-codes-vacation-planner.b12sites.com/index#home 
+2. Replace mock data with API data 

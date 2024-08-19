@@ -3,7 +3,7 @@ import { useUserInfoContext } from "../../providers/UserInfoProvider";
 import { TravelFormInput } from "./TravelFormInput";
 
 export const TravelForm = () => {
-  const { travelInfo, setTravelInfo } = useUserInfoContext();
+  const { travelInfo, setTravelInfo, setCurrentStep } = useUserInfoContext();
 
   const [errors, setErrors] = useState({
     budget: "",
@@ -76,9 +76,7 @@ export const TravelForm = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (validate()) {
-      alert(
-        `Budget: $${travelInfo.budget}\nTravel Dates: ${travelInfo.startDate} to ${travelInfo.endDate}\nStarting Location: ${travelInfo.startLocation}\nEnd Location: ${travelInfo.endLocation}\nNumber of People: ${travelInfo.numberOfPeople}`
-      );
+      setCurrentStep("AIChatting");
     }
   };
 

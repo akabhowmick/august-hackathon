@@ -1,10 +1,14 @@
-const express = require("express");
-const axios = require("axios");
+import { attractionsData } from "../MockData/mockAttractions";
+import { flightsData } from "../MockData/mockFlights";
+import { hotelsData } from "../MockData/mockHotels";
+import { restaurantsData } from "../MockData/mockRestaurants";
+
+import express, { Request, Response } from "express";
+// const axios = require("axios");
 const router = express.Router();
-const { flightsData, hotelsData, restaurantsData, attractionsData } = require("../data/mockData");
 
 // Example endpoint to get travel suggestions
-router.post("/suggestions", async (req, res) => {
+router.post("/suggestions", async (req: Request, res: Response) => {
   const { budget, startDate, endDate, startLocation, endLocation, numberOfPeople } = req.body;
 
   try {

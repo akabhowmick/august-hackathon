@@ -15,12 +15,25 @@ export const Chatbox: React.FC = () => {
   return (
     <div>
       <div>
+        User Messages: 
         {messages.map((msg, idx) => (
           <div key={idx}>{msg}</div>
         ))}
       </div>
-      <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
-      <button onClick={handleSend}>Send</button>
+      <label htmlFor="AIChatMessage">Enter your queries here</label>
+      <input
+        id="AIChatMessage"
+        className="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-white"
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <button
+        className="w-full bg-indigo-600 text-white py-2 px-4 my-2 rounded-md hover:bg-indigo-700"
+        onClick={handleSend}
+      >
+        Send
+      </button>
     </div>
   );
 };

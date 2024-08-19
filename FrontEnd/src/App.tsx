@@ -19,8 +19,7 @@ function App() {
   const { currentStep, finalChoices } = useUserInfoContext();
 
   const apiTravelInfo = (
-    <main>
-      <Chatbox />
+    <main className="m-4 flex-col text-black justify-center items-center bg-white p-8 rounded-lg shadow-md">
       <section id="flights">
         <FlightList />
       </section>
@@ -33,6 +32,7 @@ function App() {
       <section id="attractions">
         <AttractionList />
       </section>
+      <Chatbox />
     </main>
   );
 

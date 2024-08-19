@@ -11,14 +11,14 @@ const EXTERNAL_FLIGHT_API_URL = 'https://example.com/api/flights';
 router.get('/', async (req: Request, res: Response) => {
     const options = {
         method: 'GET',
-        url: 'https://sky-scanner3.p.rapidapi.com/flights/price-calendar-web',
+        url: EXTERNAL_FLIGHT_API_URL,
         params: {
           fromEntityId: 'YUL',
           toEntityId: 'ABJ',
           yearMonth: '2024-07'
         },
         headers: {
-          'x-rapidapi-key': '7102454959msh770337f56eaeab0p17734djsn5c461c2c8430',
+          'x-rapidapi-key': 'enter your API key',
           'x-rapidapi-host': 'sky-scanner3.p.rapidapi.com'
         }
       };

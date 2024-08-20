@@ -3,7 +3,7 @@ import { Flight, Hotel, Restaurant, Attraction } from "../../types/interfaces";
 import { generatePrompt } from "./OpenAIApi";
 
 const groq = new Groq({
-  apiKey: import.meta.env.VITE_GROG_API_KEY,
+  apiKey: "Your API KEY", // insert API key here for testing purposes but for future security reasons better to put it in as a .env variable
   dangerouslyAllowBrowser: true,
 });
 

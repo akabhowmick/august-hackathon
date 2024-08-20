@@ -7,7 +7,7 @@ interface User {
   email: string;
 }
 
-type AllowedValues = "initialUserInfo" | "AIChatting" | "FinalSummary";
+type AllowedValues = "initialUserInfo" | "AIChatting" | "FinalSummary" | "AIFinalSummary";
 
 const dummyInput: TravelInfo = {
   budget: 2000,
@@ -38,6 +38,8 @@ interface UserInfoContextType {
   setFinalChoices: React.Dispatch<React.SetStateAction<UserChoice>>;
   itinerary: UserChoice;
   setItinerary: React.Dispatch<React.SetStateAction<UserChoice>>;
+  aIGeneratedString: string;
+  setAIGeneratedString: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const UserInfoContext = createContext<UserInfoContextType>({} as UserInfoContextType);
@@ -46,6 +48,7 @@ export const UserInfoProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [travelInfo, setTravelInfo] = useState<TravelInfo>(dummyInput);
   const [currentStep, setCurrentStep] = useState<AllowedValues>("initialUserInfo");
+  const [aIGeneratedString, setAIGeneratedString] = useState<string>("");
   const [itinerary, setItinerary] = useState<UserChoice>({
     flights: [],
     hotels: [],
@@ -75,6 +78,8 @@ export const UserInfoProvider = ({ children }: { children: ReactNode }) => {
         setFinalChoices,
         itinerary,
         setItinerary,
+        aIGeneratedString,
+        setAIGeneratedString,
       }}
     >
       {children}

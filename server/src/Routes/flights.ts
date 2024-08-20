@@ -24,7 +24,6 @@ router.get('/', async (req: Request, res: Response) => {
       };
     try {
         const response = await axios.request(options);
-        console.log(response); 
         res.json(response.data);
     } catch (err: unknown) {
         if (err instanceof Error) {

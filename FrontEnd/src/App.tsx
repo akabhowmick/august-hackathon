@@ -9,9 +9,10 @@ import { TravelForm } from "./Components/TravelForm/TravelForm";
 import { useUserInfoContext } from "./providers/UserInfoProvider";
 import SummaryPage from "./Components/Summary/Summary";
 import { ItineraryList } from "./Components/Itinerary/ItineraryList";
+import { AISummary } from "./Components/Summary/AISummary";
 
 function App() {
-  const { currentStep, finalChoices } = useUserInfoContext();
+  const { currentStep } = useUserInfoContext();
 
   return (
     <>
@@ -22,7 +23,8 @@ function App() {
             <RestaurantProvider>
               {currentStep === "initialUserInfo" && <TravelForm />}
               {currentStep === "AIChatting" && <ItineraryList />}
-              {currentStep === "FinalSummary" && <SummaryPage choices={finalChoices} />}
+              {currentStep === "FinalSummary" && <SummaryPage />}
+              {currentStep === "AIFinalSummary" && <AISummary  />}
             </RestaurantProvider>
           </AttractionProvider>
         </HotelProvider>

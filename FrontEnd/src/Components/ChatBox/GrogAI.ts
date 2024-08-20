@@ -3,7 +3,7 @@ import { Flight, Hotel, Restaurant, Attraction } from "../../types/interfaces";
 import { generatePrompt } from "./OpenAIApi";
 
 const groq = new Groq({
-  apiKey: "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",
+  apiKey: import.meta.env.VITE_GROG_API_KEY,
   dangerouslyAllowBrowser: true,
 });
 
